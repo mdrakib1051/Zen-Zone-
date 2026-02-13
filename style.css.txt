@@ -1,0 +1,79 @@
+/* style.css */
+body {
+    margin: 0;
+    padding: 0;
+    background: #0a0a0a; /* ডার্ক ব্যাকগ্রাউন্ড */
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    z-index: 10;
+}
+
+.title {
+    letter-spacing: 12px;
+    opacity: 0.4;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+#clock {
+    font-size: 100px;
+    font-weight: 200;
+    margin: 10px 0;
+    font-variant-numeric: tabular-nums; /* নাম্বারগুলো যেন না কাঁপে */
+}
+
+.quote {
+    font-style: italic;
+    opacity: 0.5;
+    margin-bottom: 50px;
+}
+
+.sound-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 110px;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+/* বাটন যখন অ্যাক্টিভ থাকবে */
+button.active {
+    border-color: #00ffcc;
+    background: rgba(0, 255, 204, 0.15);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+}
+
+button span {
+    font-size: 12px;
+    margin-top: 8px;
+    opacity: 0.7;
+    letter-spacing: 1px;
+}
