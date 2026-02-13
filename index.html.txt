@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen Zone | My Creative</title>
+    <style>
+        body {
+            margin: 0;
+            background: #0a0a0a;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container { text-align: center; }
+        #clock { font-size: 100px; font-weight: 200; margin: 20px 0; }
+        .quote { font-style: italic; opacity: 0.5; margin-bottom: 40px; }
+        .sound-grid { display: flex; gap: 20px; justify-content: center; }
+        button {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+        button:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-5px); }
+        button.active { border-color: #00ffcc; background: rgba(0, 255, 204, 0.1); }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 style="letter-spacing: 10px; opacity: 0.4;">ZEN ZONE</h2>
+        <div id="clock">00:00:00</div>
+        <p class="quote">"Breathe in, let the creativity flow."</p>
+
+        <div class="sound-grid">
+            <button onclick="toggleSound('rain', this)">🌧️ Rain</button>
+            <button onclick="toggleSound('cafe', this)">☕ Cafe</button>
+            <button onclick="toggleSound('forest', this)">🌲 Forest</button>
+            <button onclick="toggleSound('waves', this)">🌊 Waves</button>
+        </div>
+    </div>
+
+    <audio id="rain" loop src="https://www.soundjay.com/nature/rain-01.mp3"></audio>
+    <audio id="cafe" loop src="https://www.soundjay.com/misc/sounds/coffee-shop-1.mp3"></audio>
+    <audio id="forest" loop src="https://www.soundjay.com/nature/sounds/forest-wind-1.mp3"></audio>
+    <audio id="waves" loop src="https://www.soundjay.com/nature/sounds/ocean-waves-1.mp3"></audio>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toLocaleTimeString();
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        function toggleSound(id, btn) {
+            const sound = document.getElementById(id);
+            if (sound.paused) {
+                sound.play();
+                btn.classList.add('active');
+            } else {
+                sound.pause();
+                btn.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
